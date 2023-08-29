@@ -17,12 +17,13 @@ function selectPerson() {
 
 function getEventFromHash() {
     // We need to slice the # off
-    let name = window.location.hash.slice(1);
-    if (name.includes("%20")) {
-        name = name.replaceAll("%20", " ")
+    const name = decodeURI(window.location.hash.slice(1))
+    
+    // if (name.includes("%20")) {
+    //     name = name.replaceAll("%20", " ")
 
-        console.log("eventhash ", name)
-    }
+    //     console.log("eventhash ", name)
+    // }
 
     state.singlePerson = state.allPeople.find((person) => {
 
